@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Hello - Docker Spring Boot</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Courier New', 'Fira Code', monospace;
+            background: #1e1e2e;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .json-container {
+            background: #282a36;
+            border-radius: 16px;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.3);
+            width: 100%;
+            max-width: 650px;
+            overflow: hidden;
+        }
+
+        .json-header {
+            background: #44475a;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #6272a4;
+        }
+
+        .json-header h3 {
+            color: #f8f8f2;
+            font-weight: 500;
+            font-size: 14px;
+        }
+
+        .badge {
+            background: #50fa7b;
+            color: #282a36;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: bold;
+        }
+
+        .json-content {
+            padding: 25px;
+        }
+
+        .json-line {
+            font-family: monospace;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #f8f8f2;
+        }
+
+        .key {
+            color: #8be9fd;
+            font-weight: bold;
+        }
+
+        .string {
+            color: #f1fa8c;
+        }
+
+        .number {
+            color: #bd93f9;
+        }
+
+        .boolean-true {
+            color: #50fa7b;
+        }
+
+        .bracket {
+            color: #ff79c6;
+        }
+
+        .indent-1 {
+            margin-left: 20px;
+        }
+
+        .status-success {
+            display: inline-block;
+            background: #50fa7b20;
+            color: #50fa7b;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            margin-left: 10px;
+        }
+
+        .footer {
+            background: #1e1f29;
+            padding: 12px 20px;
+            border-top: 1px solid #44475a;
+            font-size: 11px;
+            color: #6272a4;
+            text-align: center;
+        }
+
+        @keyframes pulse {
+            0% { opacity: 0.6; }
+            100% { opacity: 1; }
+        }
+
+        .live-indicator {
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            background: #50fa7b;
+            border-radius: 50%;
+            margin-right: 8px;
+            animation: pulse 1s infinite;
+        }
+    </style>
+</head>
+<body>
+<div class="json-container">
+    <div class="json-header">
+        <h3>📋 GET /api/hello</h3>
+        <div class="badge">HTTP 200 OK</div>
+    </div>
+    <div class="json-content">
+        <div class="json-line">
+            <span class="bracket">{</span>
+        </div>
+        <div class="json-line indent-1">
+            <span class="key">"database"</span><span class="bracket"> : </span><span class="string">"[[${database}]]"</span><span class="bracket">,</span>
+            <span class="status-success">✓ connecté</span>
+        </div>
+        <div class="json-line indent-1">
+            <span class="key">"message"</span><span class="bracket"> : </span><span class="string">"[[${message}]]"</span><span class="bracket">,</span>
+        </div>
+        <div class="json-line indent-1">
+            <span class="key">"status"</span><span class="bracket"> : </span><span class="boolean-true">"[[${status}]]"</span><span class="bracket">,</span>
+        </div>
+        <div class="json-line indent-1">
+            <span class="key">"timestamp"</span><span class="bracket"> : </span><span class="string">"[[${timestamp}]]"</span>
+        </div>
+        <div class="json-line">
+            <span class="bracket">}</span>
+        </div>
+    </div>
+    <div class="footer">
+        <span class="live-indicator"></span>
+        API Docker - Spring Boot en temps réel
+    </div>
+</div>
+</body>
+</html>

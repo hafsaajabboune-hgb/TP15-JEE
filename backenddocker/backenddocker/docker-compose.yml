@@ -1,0 +1,36 @@
+version: '3.8'
+
+services:
+  mysql-db:
+    image: mysql:8.0
+    container_name: mysql-perso
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: mdproot456
+      MYSQL_DATABASE: mabaseperso
+    ports:
+      - "3307:3306"
+    volumes:
+      - data-mysql:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      timeout: 10s
+      retries: 10
+
+  monapp:
+    image: monproprebackend/mapp:v2
+    container_name: spring-app-perso
+    depends_on:
+      mysql-db:
+        condition: service_healthy
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:mysql://mysql-db:3306/mabaseperso?createDatabaseIfNotExist=true
+      - SPRING_DATASOURCE_USERNAME=root
+      - SPRING_DATASOURCE_PASSWORD=mdproot456
+      - SPRING_JPA_HIBERNATE_DDL_AUTO=update
+      - SERVER_SERVLET_CONTEXT_PATH=/monapi
+    ports:
+      - "8095:8080"
+
+volumes:
+  data-mysql:

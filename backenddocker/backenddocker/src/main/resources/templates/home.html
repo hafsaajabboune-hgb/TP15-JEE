@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mon Application Docker</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+            padding: 40px;
+            max-width: 600px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 30px;
+            font-size: 14px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+            font-size: 28px;
+        }
+
+        .status-card {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 20px;
+            margin: 20px 0;
+            border-left: 4px solid #28a745;
+        }
+
+        .status-success {
+            color: #28a745;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .message {
+            font-size: 18px;
+            color: #555;
+            margin: 15px 0;
+        }
+
+        .db-status {
+            background: #e8f5e9;
+            padding: 10px;
+            border-radius: 10px;
+            color: #2e7d32;
+            margin: 15px 0;
+        }
+
+        .version {
+            color: #999;
+            font-size: 12px;
+            margin-top: 20px;
+        }
+
+        .endpoint {
+            background: #2d3748;
+            color: #a0aec0;
+            padding: 10px;
+            border-radius: 8px;
+            font-family: monospace;
+            font-size: 12px;
+            margin-top: 20px;
+        }
+
+        .icon {
+            font-size: 50px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="badge">DOCKER + SPRING BOOT</div>
+    <div class="icon">🐳</div>
+    <h1>[[${appName}]]</h1>
+    <div class="status-card">
+        <div class="status-success">✓ STATUT : EN COURS D'EXECUTION</div>
+        <div class="message">[[${message}]]</div>
+    </div>
+    <div class="db-status">
+        🗄️ [[${dbStatus}]]
+    </div>
+    <div class="endpoint">
+        📍 API disponibles : /api/hello | /api/test
+    </div>
+    <div class="version">
+        Version [[${version}]] | Conteneur Docker
+    </div>
+</div>
+</body>
+</html>
